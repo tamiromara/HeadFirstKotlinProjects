@@ -1,4 +1,4 @@
-#### Function decleration uses **parameters**: parameters are just local variables inside the function def.
+###### Function decleration uses **parameters**: parameters are just local variables inside the function def.
 
 #### Function calls uses **arguments**.
 
@@ -6,7 +6,7 @@
 
 - parameters are optionl
 
-- when used, parameters must hane *name* and *type*, seperated by comma: `,`.
+- when used, parameters must have *name* and *type*, seperated by comma: `,`.
 
 - *arguments* passed into the function must be of the same *<u>order</u>* and *<u>type</u>* as the *parameters*.
 
@@ -23,7 +23,7 @@
 
   
 
-- If you want to get something back from a function, it needs to be declared:
+- If you want to get something back from a function, it needs to be **declared**:
 
   ```kotlin
   fun man(a: Int, b: Int): Int {
@@ -82,7 +82,7 @@
 
 
 
-Create the `getGameChoice` function:
+### Create the `getGameChoice` function:
 
 ```kotlin
 // accepts one parameter of the type Array<String> and returns one of the arrays items (String):
@@ -91,7 +91,11 @@ fun getGameChoice(optionsParam: Array<String>): String {
   return optionsParam[randomNumber]
 }
 
-/*the above can be simplified since the result can be achieved with one expression and without a return statment */
+/*
+ * the above can be simplified since the result can be achieved with one expression and without a return statment 
+ * Although it'll work, ALWAYAS consider the readability of your code! The above example is more readable. 
+ */
+
 fun getGameChoic(optionsParam: Array<String>) = 
 optionsParam[(Math.random() * optionsParam.size).toString]
 ```
@@ -176,14 +180,14 @@ fun getUserChoice(optionsParam: Array<String>): String {
 
 
 
-Local Variables:
+##### Local Variables:
 
 - only visible inside the function.
 - must be locally initialized before they can be used.
 - function parameters are the same as local variables
   - they are only visible inside the function.
   - they are automatically initialized, by the invoked function argument(s).
-  - can not assign a new value to a function parameter variable, because they are declared as `val`.
+  - can not assign a new value to a function parameter variable, because they are automatically declared as `val`.
 
 
 
@@ -192,7 +196,7 @@ Local Variables:
 - ###### `while` loop:
 
   - Runs while a *condition* is true.
-  - it manually iterates over a range
+  - it **manually** iterates over a range
     - we need to initialize a variable, and
     - increament its value to iterate.
 
@@ -208,17 +212,17 @@ Local Variables:
 
   
 
-- ###### `for` loops: useful when you want to
+- ###### `for` loop: useful when you want to
 
   -  iterrate over a fixed range of elements, or
   - through every item in an Array, or some other **collections**.
-  - *automatically* iterates over a range of items/values.
+  - ***automatically*** iterates over a range of items/values.
     - no need to initialize variable manually or increament its value for iteration
 
   - ​	We specify the range using the `..` operator.
   - The variable `i` gets created when the loop runs.
   - At the beginning of each loop, the number is assigned to the variable.
-  - If the for loop only has a single statment, we can make it more conscise
+  - If the *for* loop only has a single statment, we can make it more conscise: 
 
   ```kotlin
   fun main() {
@@ -227,9 +231,9 @@ Local Variables:
   }
   ```
 
-  - `..`: includes both side of the range: `for (i in 1..5)` 
+  - `..`: *includes* both side of the range: `for (i in 1..5)` 
 
-  - `until`:  exclude the last number: `for (i in 1 until 5)` 
+  - `until`:  *exclude* the last number: `for (i in 1 until 5)` 
 
   - `downTo`: to reverse the range: `for (i in 5 downTo 1)` // until can also be used here
 
@@ -240,15 +244,17 @@ Local Variables:
 
 
 
-- Looping in order through the items of an Array:
+##### Looping through the items of an Array:
 
-  ```kotlin 
+- In order:
+
+  ```kotlin
   for (items in optionsParam) {
     println(""$item is an item in the array")
   }
   ```
 
-- looping via the array's indices:
+- via the array's indices:
 
   ```kotlin
   for (index in optionsParam.indices) {
@@ -256,53 +262,67 @@ Local Variables:
   }
   ```
 
+- The above loop can be simplified using `.withIndex()`:
+
+  ```kotlin
+  for ((index, item) in optionsParam.withIndex()) {
+    println("Index $index has item $item")
+  }
+  ```
+
+  - This will loop through each item of the array:
+    - The item's *index* will be assigned to the variable `index`
+    - The *item itself* will be assigned to the variable `item`
   
 
 
 
-
-
-
-
-. 
-
-.
-
-.
-
-.
-
-.
-
-.
-
-**NOTE**: when you pass a value to a function you're really passing it a reference to an object.
-
-This implies that the object can be modified.
+#### Ask the user for their choice:
 
 ```kotlin
-val main() {
-  val options = arrayOf("tamir", "noura", "eman")
-  	udpateArray(options)
-  println("$options[2]")
-}
+// Ask the user for their choice:
+print("Please pick a choice:")
 
-private fun updateArray(optionsParam: Array<String>) = optionsParam[2] = "noosa"
+// Printout the available choices on the same line:
+for (item in optionsParam) print(" $item")
+println(".")
 ```
 
 
 
+###### Use the readline funciton to read the user's input:
+
+`readLine()` function: 
+
+- reads a line of input from the *Standard Input Stream* (output windows in IDE, in our case)
+
+- Returns a *String* vlaue: the text entered by the user:
+
+  ```kotlin
+  val userInput = readLine()
+  ```
 
 
 
+###### Boolean Expressions:
 
+- `&&`: Both sides of the symbol are true.
 
+- `||`: Either side of the symbol is true. 
 
+- `!=`: Does not equal to
 
+- `!`: Is not
 
+  
 
+###### We need to validate the user's input:
 
+1. Check the user's input isn't *null*
+2. Check whether the user's choice is in the options Array.
+3. Loop until the user enters a valid choice.
 
+*Already implemented in the full example at the top*
 
 
 

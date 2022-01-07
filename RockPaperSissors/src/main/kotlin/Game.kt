@@ -9,9 +9,20 @@ fun main() {
      *
      *  userChoice takes an array of Strings, options, as an argument and returns the user selected Answer.
      *  Reference to the user's choice is stored in userChoice.
+     *
+     * +----------------------------------------------------------------------------------------------+
+     * | For testability/troubleshooting and further exploration, try to run the two print statements |
+     * +----------------------------------------------------------------------------------------------+
+     * | println("Value: $gameChoice")                                                                |
+     * | println("Type : ${gameChoice::class.simpleName}")                                            |
+     * +----------------------------------------------------------------------------------------------+
+     *
+     *  printResult passes two arguments into the function: userChoice and gameChoice respectively!
+     *  order is important here.
      */
     val gameChoice = getGameChoice(options)
     val userChoice = getUserChoice(options)
+    printResult(userChoice, gameChoice)
 }
 
 /*
@@ -39,7 +50,7 @@ fun getUserChoice(optionsParam: Array<String>): String {
          *  This is helpful in case new values were added/removed from our Array<String>.
          *  for loop will iterate over the optionsParam values and print them on the screen.
          */
-        print("Please choose of the following,")
+        print("Please choose one of the following,")
         for (item in optionsParam) print(" $item")
         print(": ")
 
@@ -50,10 +61,10 @@ fun getUserChoice(optionsParam: Array<String>): String {
          *  Validating the user input:
          *
          *  readLines() returns null value if it's reading a line from a file, and it reaches the end of the file.
-         *  Despite this not being the case in our program, as we're reading from the output window,
+         *  Despite this not being the case in our program as we're reading from the output window,
          *  it's a good practice to always validate the user input.
          *
-         *  if Statement return true if both the userInput isn't null and its value matches an item within
+         *  if Statement returns true if both the userInput isn't null and its value matches an item within
          *  the passed Array<String> optionsParam.
          *  The expressions within if body are then executed:
          *  isValidChoice is updated to true, so the if statement stops looping.
@@ -64,21 +75,32 @@ fun getUserChoice(optionsParam: Array<String>): String {
             userChoice = userInput
         }
         //  if user input didn't pass the above condition, the user will be asked to re-enter his choice
-        if (!isValidChoice) println("You must enter a valid choice.")
+        if (!isValidChoice) println("\nSORRY: You must enter a valid choice!\nMake sure you capitalize the first letter of your valid choice.\n\n")
     }
     // userChoice reference value is updated and returned
     return userChoice
 }
 
+/*
+ *  printResult compares both choices and produces a result based on the table:
+ * +-----------------+------------------------------------------------------+
+ * |     Choices     |                        Result                        |
+ * +-----------------+------------------------------------------------------+
+ * | Scissors, Paper | The Scissors choice wins, as Scissors can cut paper. |
+ * | Rock, Scissors  | The Rock choice wins, as Rock can blunt Scissors.    |
+ * | Paper, Rock     | The Paper choice wins, as Paper can cover rock.      |
+ * +-----------------+------------------------------------------------------+
+ */
+private fun printResult(userChoice: String, gameChoice: String) {
+    val result: String
 
+    if (userChoice == gameChoice) result = "Tie!"
+    else if ((userChoice == "Rock" && gameChoice == "Scissors") ||
+            (userChoice == "Paper" && gameChoice == "Rock") ||
+            (userChoice == "Scissors" && gameChoice == "Paper")) result = "You Win!"
+    else result = "You Lose"
 
+    // Print the result:
+    println("You chose $userChoice. I chose $gameChoice: $result")
 
-
-
-
-
-
-
-
-
-
+}
