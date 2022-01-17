@@ -1,0 +1,1 @@
+![Screen Shot 2022-01-17 at 6.03.31 PM](/Users/Elomara/Documents/Android Journey/HeadFirstKotlin/images/Screen Shot 2022-01-17 at 6.03.31 PM.png)
