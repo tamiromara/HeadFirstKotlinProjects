@@ -1,21 +1,23 @@
-###### Function decleration uses **parameters**: parameters are just local variables inside the function def.
-
-#### Function calls uses **arguments**.
+# Functions:
 
 
 
-- parameters are optionl
+- *Function declaration* uses **parameters**: parameters are just *local variables* inside the function def.
 
-- when used, parameters must have *name* and *type*, seperated by comma: `,`.
+- *Function calls* passes ***arguments*** into the function.
 
-- *arguments* passed into the function must be of the same *<u>order</u>* and *<u>type</u>* as the *parameters*.
+- *Parameters* are <u>optional</u>.
+
+- When used, parameters must have a *name* and *type*, separated by comma: `,`.
+
+- *Arguments* passed into the function must be of the same *<u>order</u>* and *<u>type</u>* as the *parameters*.
 
   ```kotlin
   fun main() {
     printSum(2, 3)
   }
   
-  private fun printSum(int1: Int, int2: Int) {
+  fun printSum(int1: Int, int2: Int) {
     val result = int1 + int2
     println(result)
   }
@@ -32,7 +34,7 @@
   }
   ```
 
-  - `Int` tells the compiler that the function returns and Integer.
+  - `Int`: after the constructor, tells the compiler that the function returns and *Integer*.
   - `return` keyword followed by the variable name or expression to return.
   - the returned variable/value type has to match the function's declared type.
   - **NOTE**: if a return type is explicitly declared, the function **has to ** include a `return` statement.
@@ -48,15 +50,16 @@
       val result = int1 + int2
       println(result)
     }
-    
-    // 					same as the above
-    
+    ```
+  
+    ```kotlin
+    // same as the above
     fun printSum(int1: Int, int2: Int): Unit { //this is optional
       val result = int1 + int2
       println(result)
     }
     ```
-
+  
   - **NOTE**: if you try to return a value from a function with no declared return type, or a return type `Unit`, the **code will not compile**.
 
 

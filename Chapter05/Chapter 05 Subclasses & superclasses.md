@@ -1,3 +1,5 @@
+# Superclasses & Subclasses
+
 
 
 **<u>Inheritance</u>**: putting common code in one class (**superclass**) and the allowing other more specific classes (**subclass**) to inherit this code.
@@ -393,15 +395,19 @@ When you define a set of properties and functions in a superclass, you’re guar
 
 
 
-**<u>IMPORTANT</u>**: When you declare a variable, any object that's a subclass of the object's type can be assigned to it:
+**<u>IMPORTANT</u>**:
 
-The following code defines an *Animal* variable and assigns it a reference of a *Wolf* object. 
+When you declare a variable, any object that's a subclass of the object's type can be assigned to it:
 
-The compiler knows that *Wolf* is a type of *Animal*. That's why it compiles.
+- The following code defines an *Animal* variable and assigns it a reference of a *Wolf* object. 
 
-```kotlin
-val animal: Animal = Wolf()
-```
+- The compiler knows that *Wolf* is a type of *Animal*. That's why it compiles.
+
+  ```kotlin
+  val animal: Animal = Wolf()
+  ```
+
+  
 
 
 

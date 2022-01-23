@@ -295,9 +295,5 @@ fun main() {
 
     
 
-![Screen Shot 2021-12-28 at 4.36.27 PM](/Users/Elomara/Desktop/Android Journey/Screen Shot 2021-12-28 at 4.36.27 PM.png)
-
-
-
 
 

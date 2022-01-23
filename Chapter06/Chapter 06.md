@@ -1,12 +1,4 @@
-### To Learn:
-
-- Using *abstract classes* to control which classes can or can't be *instantiated* in the hierarchy.
-
-- How *abstract classes* can force *concrete classes* to provide *their own implementation*.
-
-- How to use *interfaces* to share *behavior* between *independent classes*.
-
-- Get into ***is**, **as*** and ***when***
+# Abstract Classes & Interfaces
 
 
 

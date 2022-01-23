@@ -1,4 +1,4 @@
-class Dog(val name: String, weight_param: Int, breed_param: String) {
+class Cat(val name: String, weight_param: Int, breed_param: String) {
     init {
         println("Dog $name has been created!")
     }
@@ -25,26 +25,26 @@ class Dog(val name: String, weight_param: Int, breed_param: String) {
 }
 
 fun main() {
-    val myDog = Dog("Bubbles", 70, "Mixed")
-    myDog.bark()
+    val myCat = Cat("Bubbles", 70, "Mixed")
+    myCat.bark()
 
-    myDog.weight = 75
-    println("Weight in kgs is ${myDog.weightInKgs}")
+    myCat.weight = 75
+    println("Weight in kgs is ${myCat.weightInKgs}")
 
-    myDog.weight = -2
-    println("Weight is ${myDog.weight}")
+    myCat.weight = -2
+    println("Weight is ${myCat.weight}")
 
-    myDog.activities = arrayOf("Walks", "Fetching sticks", "Frisbee")
-    for (item in myDog.activities) {
-        println("My Dog ${myDog.name} enjoys $item")
+    myCat.activities = arrayOf("Walks", "Fetching sticks", "Frisbee")
+    for (item in myCat.activities) {
+        println("My Dog ${myCat.name} enjoys $item")
     }
 
-    val dogs = arrayOf(
-        Dog("Candy", 30, "Westie"),
-        Dog("Ripper", 10, "Poodle"))
+    val cats = arrayOf(
+        Cat("Candy", 30, "Westie"),
+        Cat("Ripper", 10, "Poodle"))
 
-    dogs[1].bark()
-    dogs[1].weight = 15
-    println("Weight for ${dogs[1].name} is ${dogs[1].weight}")
+    cats[1].bark()
+    cats[1].weight = 15
+    println("Weight for ${cats[1].name} is ${cats[1].weight}")
 
 }
