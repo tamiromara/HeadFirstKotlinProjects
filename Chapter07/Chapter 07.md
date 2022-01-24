@@ -187,6 +187,61 @@ val (title, vegetarian) = r	//Create two variables title & vegetarian and assign
 
 Generated Functions:
 
+Just like normal classes, we can define properties and functions to a data class by including them in the *class body*.
+
+**The catch**: When the compiler *generates* *implementations* for data class functions (such as overriding *equals* function or creating *copy* function), **it will ONLY include the properties defined in the primary constructor.**
+
+**By default**, any properties or functions defined inside the data class body won't be included in any of the generated functions.
+
+```kotlin
+// mainIngredient property is defined and initilized inside the data class body
+data class Recipe(val title: String, val isVegetarian: Boolean) {
+  var mainIngredient = ""
+}
+```
+
+```kotlin
+// despite updating the mainIngredient property in both objects, equals functions doens't include them in it's comparison
+val r1 = Recipe("Thai Curry", false)
+r1.mainIngredient = "Chicken"
+
+val r2 = Recipe("Thai Curry", false)
+r2.mainIngredient = "Duck"
+
+r1 == r2	// true, equals is only concerned with properties defined in the primary constructor.
+```
+
+
+
+Default Parameters:
+
+If the constructor defines allot of properties, we can simplify calls to it be *assigning default value or expression* to one or more properties definitions in the primary constructor.
+
+```kotlin
+data class Recipe(val title: String, val mainIngredient: String, val isVegetarian: Boolean = false, val difficulty: String = "easy") {...}
+```
+
+Two ways for calling constructors with default properties:
+
+1) Passing values in order of declaration:
+
+   ```kotlin
+   // This assigns Spaghetti Bolognese and Beef to properties title and mainIngredient
+   // then uses the default values provided in the primary constructor for the remaining properties
+   val r = Recipe("Spaghetti Bolognese", "Beef")	// values must be passed in order
+   ```
+
+2) Named arguments:
+
+   Allows us to explicitly state which property should be assigned which value.
+
+   ```kotlin
+   ```
+
+   
+
+
+
 
 
 
